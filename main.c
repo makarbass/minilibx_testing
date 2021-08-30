@@ -9,30 +9,15 @@ int deal_key(int key, fdf *data)  // ОБРАБОТКА КНОПОК
 		exit(0); // выйти из программы
 	}
 	if (key == 124 || key == 2) // -> & D
-	{
-		data->x += data->zoom; // смещаемся по х
-		mlx_clear_window (data->mlx_ptr, data->win_ptr); // очищаем окно
-		square(data); //рисуем квадрат
-	}
+		data->x += data->zoom; // смещаемся по х вправо
 	if (key == 123 || key == 0) // <- & A
-	{
-		data->x -= data->zoom;
-		mlx_clear_window (data->mlx_ptr, data->win_ptr);
-		square(data);
-	}
+		data->x -= data->zoom; // смещаемся по х влево
 	if (key == 126 || key == 13) //DOWN & S
-	{
-		data->y -= data->zoom;
-		mlx_clear_window (data->mlx_ptr, data->win_ptr);
-		square(data);
-	}
+		data->y -= data->zoom; // смещаемся по у вниз
 	if (key == 125 || key == 1) // UP & W
-	{
-		data->y += data->zoom;
-		mlx_clear_window (data->mlx_ptr, data->win_ptr); 
-		square(data); 
-	}
-
+		data->y += data->zoom; // смещаемся по у вверх
+	mlx_clear_window (data->mlx_ptr, data->win_ptr); // очищаем окно
+	square(data); //рисуем квадрат
 	return(0);
 }
 
