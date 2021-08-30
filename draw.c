@@ -24,6 +24,56 @@ void bresenham(float x, float y, float x1, float y1, fdf *data) // рисова�
 	}
 }
 
+void horizontal_line (int x, int x1, int y, fdf *data)
+{
+	while(x < x1)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0x00ffffff);	
+		x++;
+	}
+}
+
+void vertical_line (int x, int y, int y1, fdf *data)
+{
+	while(y < y1)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0x00ffffff);
+		y++;
+	}
+}
+
+void bresenham2(int x, int y, int x1, int y1, fdf *data)
+{
+	int d_x;
+	int d_y;
+	int er;
+	int d_er;
+	int yo;
+	int diry;
+
+	d_x = MOD(x1 - x);
+	d_y = MOD(y1 - y);
+	er = 0;
+	d_er = d_y + 1;
+	yo = y;
+	diry = y1 - y;
+	if (diry > 0)
+		diry = 1;
+	if (diry < 0)
+		diry = -1;
+	while (x < x1)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0x00ffffff);
+		er = er + d_er;
+		if (er >= (d_x + 1))
+		{
+			y = y + d_y;
+			er = er - (d_x + 1);
+		}
+		x++;
+	}
+}
+
 void square(fdf *data, int color) // для рисования квадрата передаем структуру
 {
 	int x;

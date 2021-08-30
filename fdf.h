@@ -21,5 +21,8 @@ typedef struct // та самая структура, в которой хран
 
 void bresenham(float x, float y, float x1, float y1, fdf *data); //прототип ф-ции для рисования линии
 void square(fdf *data, int color); // прототип функции для рисования квадрата
+void bresenham2(int x, int y, int x1, int y1, fdf *data);
+void horizontal_line (int x, int x1, int y, fdf *data);
+void vertical_line (int x, int y, int y1, fdf *data);
 
 #endif
