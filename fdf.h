@@ -13,12 +13,13 @@ typedef struct // та самая структура, в которой хран
 	int x;
 	int y;
 	int zoom;
-
+	int width;
+	int height;
 	void *mlx_ptr;
 	void *win_ptr;
 }	fdf;
 
 void bresenham(float x, float y, float x1, float y1, fdf *data); //прототип ф-ции для рисования линии
-void square(fdf *data); // прототип функции для рисования квадрата
+void square(fdf *data, int color); // прототип функции для рисования квадрата
 
 #endif
